@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %} About Author {% endblock title %}
+{% block aboutactive %} active {% endblock aboutactive %}
+{% block body %}
+<!--<img src='/media/{{abv.image}}' alt="...">-->
+<div class="container my-3">
+<h2 align="center">About Author</h2>
+
+    {% for abv in ab %}
+    {% for di in babou %}
+    {% if di.sno == abv.sno %}
+    <strong><h3>About Author: {{di.name}}</h3></strong>
+    <img src='/media/{{abv.photo}}' border="3" align="middle" height="150" width="200" alt="NO PIC">
+    <h4>Email id: <a href="mailto:{{di.email}}">{{di.email}}</a></h4>
+    <h4>Description</h4>
+    <p>{{abv.Description}}</p>
+    <h5>Connect with Social Media </h5>
+
+
+    <table style="font-family:arial, sans-serif;border-collapse: collapse;width: 100%;">
+    <tr>
+    <td style="text-align: left;padding: 8px;"><a href="{{abv.facebook_link}}">Facebook</a>
+        <td style="text-align: left;padding: 8px;"><a href="{{abv.linkedin_link}}">LinkedIn</a></td>
+        <td style="text-align: left;padding: 8px;"><a href="{{abv.twitter_link}}">Twitter</a></td>
+    </tr>
+    </table>
+
+    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+
+{% endif %}
+
+{% endfor %}
+{% endfor %}
+
+</div>
+
+
+{% endblock body %}
